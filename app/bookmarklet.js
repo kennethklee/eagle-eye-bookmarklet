@@ -70,29 +70,28 @@
         if (window.readability) return readabilityReady();
 
         //makeEl('script', {src: '/readability.js'}, document.head);
-        makeEl('script', {src: 'http://www.squirt.io/bm/readability.js'}, document.head);
+        makeEl('script', {src: 'https://www.squirt.io/bm/readability.js'}, document.head);
         handler = document.addEventListener('readability.ready', readabilityReady);
     };
 
     var render = function render() {
-        var div = document.createElement('div');
-        document.body.appendChild(div);
-
+        var div = makeEl('div', {id: 'eagle-reader'}, document.body);
         div.style.position = 'absolute';
         div.style.width = '100%';
         div.style.height = '200px';
         div.style.top = div.style.bottom = div.style.right = div.style.left = 0;
         div.style.margin = 'auto';
-        div.style.backgroundColor = 'rgba(0,0,0,0.5)';  // Does this work?
-
-        function clear() {
-            div.parentNode.removeChild(div);
-        }
-        setTimeout(clear, 5000);
+        div.style.backgroundColor = 'rgba(0,0,0,0.7)';  // Does this work?
     };
 
-    render();
+    var clear = function() {
+        var div = document.querySelector('#eagle-reader');
+        div.parentNode.removeChild(div);
+    };
+
     getText(function(text) {
+        render();
         console.log(parse(text));
+        setTimeout(clear, 5000);
     });
 })();

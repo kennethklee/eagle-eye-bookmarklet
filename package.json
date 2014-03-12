@@ -1,0 +1,25 @@
+{
+  "name": "eagle-eye-bookmarklet",
+  "version": "0.0.0",
+  "description": "Zethos inspired speed reading bookmarklet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kennethklee/eagle-eye-bookmarklet.git"
+  },
+  "author": "Kenneth Lee <kennethkl@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennethklee/eagle-eye-bookmarklet/issues"
+  },
+  "homepage": "https://github.com/kennethklee/eagle-eye-bookmarklet",
+  "dependencies": {
+    "express": "~3.4.8",
+    "jade": "~1.3.0",
+    "uglify-js": "~2.4.13"
+  }
+}

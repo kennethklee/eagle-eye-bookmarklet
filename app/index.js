@@ -15,6 +15,7 @@ app.configure(function() {
     app.set('view engine', 'jade');
     app.set('views', path.join(__dirname, 'views'));
 
+    app.use(express.static(path.join(__dirname, '..', 'public')));
     app.use(express.bodyParser());
     app.use(app.router);
 

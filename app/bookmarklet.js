@@ -11,14 +11,16 @@
 
     // Separate words that are too long
     var hyphenate = function(str) {
-        with(str)
-        return length <= 7 ? str : length <= 10 ? slice(0,length - 3)+'- '+slice(length-3) : slice(0,7)+'- '+hyphenate(slice(7))
+        with(str) {
+            return length <= 7 ? str : length <= 10 ? slice(0,length - 3)+'- '+slice(length-3) : slice(0,7)+'- '+hyphenate(slice(7))
+        }
     };
 
     // Returns 2d array of words, their focus point, and delay until the next word
     var parse = function(str) {
         return str.trim().split(/[\s\n]+/).reduce(function(words, str) {
-            var focus = (str.length - 1) / 2 | 0,
+            var strLen = str.length,
+                focus = (strLen - 1) / 2 | 0,
                 delay = 60000 / window.eagleEyeWpm;
 
             for (j = focus; j >= 0; j--) {
@@ -29,13 +31,13 @@
             }
 
             // Add a delay for long words, semi-stops and full-stops.
-            if (str.length > 6) delay += delay / 4;
-            if (str.length > 9) delay += delay / 4;
+            if (strLen > 6) delay += delay / 4;
+            if (strLen > 9) delay += delay / 4;
             if (~str.indexOf(',')) delay += delay;
             if (~str.indexOf('-')) delay += delay;
             if (/[\.!\?;]$/.test(str)) delay += delay * 1.5;
 
-            if (str.length >= 15 || str.length - focus > 7) {
+            if (strLen >= 15 || strLen - focus > 7) {
                 return words.concat(parse(hyphenate(str)));
             } else {
                 return words.concat([{

@@ -76,18 +76,21 @@
     };
 
     var render = function render() {
-        var div = makeEl('div', {id: 'eagle-reader'}, document.body);
-        div.style.position = 'absolute';
-        div.style.width = '100%';
-        div.style.height = '200px';
-        div.style.top = div.style.bottom = div.style.right = div.style.left = 0;
-        div.style.margin = 'auto';
-        div.style.backgroundColor = 'rgba(0,0,0,0.7)';  // Does this work in all browsers?
-        div.style.color = 'white';
-        div.style.fontSize = '40px';
-        div.style.textAlign = 'center';
-        div.style.lineHeight = '200px';
-        div.style.fontFamily = 'Consolas';
+        var div = makeEl('div', {id: 'eagle-reader'}, document.body),
+            style = div.style;
+        
+        style.position = 'fixed';
+        style.width = '100%';
+        style.height = '200px';
+        style.top = div.style.bottom = div.style.right = div.style.left = 0;
+        style.margin = 'auto';
+        style.backgroundColor = 'rgba(0,0,0,0.7)';  // Does this work in all browsers?
+        style.color = 'white';
+        style.fontSize = '40px';
+        style.textAlign = 'center';
+        style.lineHeight = '200px';
+        style.fontFamily = 'Consolas';
+        style.zIndex = '100000';
     };
 
     var clear = function() {

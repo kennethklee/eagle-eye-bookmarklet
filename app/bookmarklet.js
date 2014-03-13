@@ -84,7 +84,7 @@
         style.height = '200px';
         style.top = div.style.bottom = div.style.right = div.style.left = 0;
         style.margin = 'auto';
-        style.backgroundColor = 'rgba(0,0,0,0.7)';  // Does this work in all browsers?
+        style.backgroundColor = 'rgba(0,0,0,0.8)';  // Does this work in all browsers?
         style.color = 'white';
         style.fontSize = '40px';
         style.textAlign = 'center';
